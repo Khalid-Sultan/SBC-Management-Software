@@ -1,0 +1,135 @@
+﻿<Page x:Class="SBCManagementSoftware.ViewAllShopsDetailedPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SBCManagementSoftware"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Height="450" Width="800"
+      Title="View All Shops Detailed">
+
+    <Grid Background="#FF2A2222">
+        <Label Content="SOBELAN BUSINESS CENTER" FontSize="48" FontFamily="Prestige Elite Std" Margin="0,0.485,0,399.515" Background="#FF3F3F46" HorizontalContentAlignment="Center">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <TabControl Height="399.715" Margin="0,0,616.2,-0.2" VerticalAlignment="Bottom" Background="{x:Null}" BorderThickness="0" TabStripPlacement="Bottom">
+            <StackPanel Orientation="Vertical" Margin="0,0,0.2,0.2">
+                <TabItem Header="Home" Name="HomeButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="HomeButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+                <TabItem Header="Shops" Name="ShopsButton" IsSelected="True" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="ShopsButton_MouseLeftButtonUp">
+                </TabItem>
+                <TabItem Header="Employees" Name="EmployeesButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="EmployeesButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+                <TabItem Header="Legal Documents" Name="LegalButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="LegalDocumentsButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+                <TabItem Header="About Us" Name="AboutButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="AboutUsButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+            </StackPanel>
+        </TabControl>
+        <Grid Name="MainContentPanel"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="616" Height="395" Margin="0,53,0,0" Panel.ZIndex="1" >
+            <Grid.Background>
+                <ImageBrush ImageSource="/SBC Management Software;component/01.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+
+            <Label Content="These are all your shops with their info." HorizontalAlignment="Left" Height="32" Margin="28,26,0,0" VerticalAlignment="Top" Width="336" FontSize="16" FontWeight="DemiBold" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+
+            <ListBox Name="DataGrid" ItemsSource="{Binding Path=LoadDataBinding}" Margin="10,60,10,33" Mouse.MouseUp="Selected" Background="WhiteSmoke">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Width="100">
+                                <Button Width="100" Height="80" Background="{Binding Path=ShopImage}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="ID - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=ID}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Floor - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=Floor}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Status - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=Status}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Price - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=Price}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Total - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=Total}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Tax(15%) - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=Tax}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="First Name - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=RenterFirstName}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Last Name - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=RenterLastName}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Company Name - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=Name}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="City - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=City}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="SubCity - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=SubCity}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Rented On - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black"/>
+                                    <Label Content="{Binding Path=BeginDate}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Deadline - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=EndDate}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Rent Duration - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=Duration}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="County - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=County}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="House Number - " FontFamily="Segoe UI" FontWeight="Bold" Foreground="Black" FontSize="10"/>
+                                    <Label Content="{Binding Path=HouseNumber}" FontFamily="Segoe UI" FontWeight="DemiBold" Foreground="Black" FontSize="10"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Name ="ExtensionMonths" Visibility="Hidden" Padding="0" Content="Extension Rent To (In Months)" Margin="10,370,0,0" FontFamily="Segoe UI" Foreground="White" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="176"/>
+            <ComboBox  Visibility="Hidden" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" FontSize="10" SelectedIndex="0" Name="ResponseTextBox" Height="25" Margin="191,367,360,3" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" >
+                <ComboBoxItem FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold">3</ComboBoxItem>
+                <ComboBoxItem FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold">6</ComboBoxItem>
+            </ComboBox>
+
+            <Button Content="Rent Out Shop" Name="RentOutButton" HorizontalAlignment="Left" Margin="266,370,0,0" VerticalAlignment="Top" Width="100" Height="20" FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold"  Background="#FF007ACC" Foreground ="White"  Click="GoToRentOutShop_Click"/>
+            <Button Content="Extend Rent" Name="ExtendRentButton" Visibility="Hidden" HorizontalAlignment="Left" Margin="266,370,0,0" VerticalAlignment="Top" Width="100" Height="20" FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold"  Background="#FF007ACC" Foreground ="White"  Click="ExtendRent_Click"/>
+            <Button Content="Clear Out Shop" HorizontalAlignment="Left" Margin="386,370,0,0" VerticalAlignment="Top" Width="100" Height="20" FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold"  Background="#FF007ACC" Foreground ="White"  Click="GoToClearOutShop_Click"/>
+            <Button Content="Modify Shop" HorizontalAlignment="Left" Margin="506,370,0,0" VerticalAlignment="Top" Width="100" Height="20" FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold"  Background="#FF007ACC" Foreground ="White"  Click="GoToModifyShop_Click"/>
+        </Grid>
+    </Grid>
+</Page>

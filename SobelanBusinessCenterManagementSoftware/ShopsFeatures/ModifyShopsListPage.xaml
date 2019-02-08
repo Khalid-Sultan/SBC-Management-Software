@@ -1,0 +1,57 @@
+﻿<Page x:Class="SBCManagementSoftware.ModifyShopsListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SBCManagementSoftware"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Height="450" Width="800"
+      Title="Modify Shops List ">
+
+    <Grid Background="#FF2A2222">
+        <Label Content="SOBELAN BUSINESS CENTER" FontSize="48" FontFamily="Prestige Elite Std" Margin="0,0.485,0,399.515" Background="#FF3F3F46" HorizontalContentAlignment="Center">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <TabControl Height="399.715" Margin="0,0,616.2,-0.2" VerticalAlignment="Bottom" Background="{x:Null}" BorderThickness="0" TabStripPlacement="Bottom">
+            <StackPanel Orientation="Vertical" Margin="0,0,0.2,0.2">
+                <TabItem Header="Home" Name="HomeButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="HomeButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+                <TabItem Header="Shops" Name="ShopsButton" IsSelected="True" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="ShopsButton_MouseLeftButtonUp" >
+                </TabItem>
+                <TabItem Header="Employees" Name="EmployeesButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="EmployeesButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+                <TabItem Header="Legal Documents" Name="LegalButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="LegalDocumentsButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+                <TabItem Header="About Us" Name="AboutButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="AboutUsButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+            </StackPanel>
+        </TabControl>
+        <Grid Name="MainContentPanel"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="616" Height="395" Margin="0,53,0,0" Panel.ZIndex="1" RenderTransformOrigin="0.585,0.631" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="481*"/>
+                <ColumnDefinition Width="109*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Shop Details" HorizontalAlignment="Left" Height="42" Margin="21,21,0,0" VerticalAlignment="Top" Width="269" FontSize="24" FontWeight="DemiBold" Foreground="Black" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+            <Label Content="Please Enter The Shop's Details" HorizontalAlignment="Left" Height="32" Margin="21,77,0,0" VerticalAlignment="Top" Width="269" FontSize="16" FontWeight="DemiBold" Foreground="Black" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+
+            <Label Content="Price" HorizontalAlignment="Left" Margin="21,138,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="165,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" x:Name="RentAmountBox" BorderThickness="0,0,0,4" BorderBrush="Black" Foreground="Black"/>
+            <Label Content="Location Photo" HorizontalAlignment="Left" Margin="21,201,0,0" VerticalAlignment="Top" Height="30" Width="115" Background="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
+            <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Resource name: MaterialDesignRaisedAccentButton" materialDesign:RippleAssist.Feedback="#DD000000" Content="Browse" HorizontalAlignment="Left" Margin="165,201,0,0" VerticalAlignment="Top" Width="100" Height="30" Background="Black" FontFamily="Segoe UI" FontWeight="DemiBold" Click="Button_Click_1" Foreground="White"/>
+            <Grid Name="LocationImage" HorizontalAlignment="Left" Height="139" Margin="275,201,0,0" VerticalAlignment="Top" Width="182" RenderTransformOrigin="0.5,0.52">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/SBC Management Software;component/user.jpg" Stretch="UniformToFill"/>
+                </Grid.Background>
+            </Grid>
+
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True"  Content="Modify Shop" HorizontalAlignment="Left" Margin="305,356,0,0" VerticalAlignment="Top" Width="134" Height="29" FontFamily="Segoe UI" FontWeight="DemiBold"  Background="#FF007ACC" Foreground ="White"  Click="Button_Click"/>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="Remove Shop" HorizontalAlignment="Left" Margin="472,356,0,0" VerticalAlignment="Top" Width="134" Grid.ColumnSpan="2" Height="29" FontFamily="Segoe UI" FontWeight="DemiBold"  Background="#FF007ACC" Foreground ="White"  Click="RemoveButton_Click"/>
+        </Grid>
+    </Grid>
+
+</Page>

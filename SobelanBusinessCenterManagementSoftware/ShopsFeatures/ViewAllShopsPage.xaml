@@ -1,0 +1,80 @@
+﻿<Page x:Class="SBCManagementSoftware.ViewAllShopsPage"
+      xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SBCManagementSoftware"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Height="450" Width="800"
+      Title="View All Shops ">
+
+    <Grid Background="#FF2A2222">
+        <Label Content="SOBELAN BUSINESS CENTER" FontSize="48" FontFamily="Prestige Elite Std" Margin="0,0.485,0,399.515" Background="#FF3F3F46" HorizontalContentAlignment="Center">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+            </Label.Foreground>
+        </Label>
+        <TabControl Height="399.715" Margin="0,0,616.2,-0.2" VerticalAlignment="Bottom" Background="{x:Null}" BorderThickness="0" TabStripPlacement="Bottom">
+            <StackPanel Orientation="Vertical" Margin="0,0,0.2,0.2">
+                <TabItem Header="Home" Name="HomeButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="HomeButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+                <TabItem Header="Shops" Name="ShopsButton" IsSelected="True" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="ShopsButton_MouseLeftButtonUp">
+                </TabItem>
+                <TabItem Header="Employees" Name="EmployeesButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="EmployeesButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+                <TabItem Header="Legal Documents" Name="LegalButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="LegalDocumentsButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+                <TabItem Header="About Us" Name="AboutButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="AboutUsButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                </TabItem>
+            </StackPanel>
+        </TabControl>
+        <Grid Name="MainContentPanel"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="616" Height="395" Margin="0,53,0,0" Panel.ZIndex="1" >
+            <Grid.Background>
+                <ImageBrush ImageSource="/SBC Management Software;component/01.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+
+            <Label Content="These are all your shops with their info." HorizontalAlignment="Left" Height="32" Margin="28,26,0,0" VerticalAlignment="Top" Width="336" FontSize="16" FontWeight="DemiBold" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+            <DataGrid  CanUserSortColumns="True" materialDesign:DataGridAssist.CellPadding="4 2 2 2" materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2"  Mouse.MouseUp="Selected" SelectedItem="selected" SelectionMode="Single" SelectionUnit="FullRow" Name="DataGrid" ItemsSource="{Binding LoadDataBinding}" AutoGenerateColumns="False" HorizontalAlignment="Left" CanUserResizeColumns="False" CanUserResizeRows="False" Margin="11,63,0,50" Width="491" CanUserAddRows="False" FontFamily="Segoe UI" FontWeight="DemiBold">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Floor}" Header="Floor" IsReadOnly="True" Width="65" />
+                    <DataGridTextColumn Binding="{Binding Path=Id}" Header="ID" IsReadOnly="True" Width="45"/>
+                    <DataGridTextColumn Binding="{Binding Path=ShopImage}" Header="ShopImage" IsReadOnly="True" Width="45" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=Status}" Header="Status" IsReadOnly="True"  Width="65"/>
+                    <DataGridTextColumn Binding="{Binding Path=BeginDate}" Header="R.Date" IsReadOnly="True" Width="75"/>
+                    <DataGridTextColumn Binding="{Binding Path=EndDate}" Header="R.EndDate" IsReadOnly="True" Width="75" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=Duration}" Header="Duration" IsReadOnly="True" Width="85"/>
+                    <DataGridTextColumn Binding="{Binding Path=Price}" Header="Price" IsReadOnly="True" Width="65"/>
+                    <DataGridTextColumn Binding="{Binding Path=Total}" Header="Total" IsReadOnly="True" Width="65" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=Tax}" Header="Tax" IsReadOnly="True" Width="65" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=RenterFirstName}" Header="R.FName" IsReadOnly="True" Width="75" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=RenterLastName}" Header="R.LName" IsReadOnly="True" Width="75" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=Name}" Header="R.Name" IsReadOnly="True" Width="75" />
+                    <DataGridTextColumn Binding="{Binding Path=City}" Header="R.City" IsReadOnly="True" Width="75" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=SubCity}" Header="R.SubCity" IsReadOnly="True" Width="75" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=County}" Header="R.County" IsReadOnly="True" Width="75" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=HouseNumber}" Header="R.House" IsReadOnly="True" Width="75" Visibility="Hidden"/>
+                </DataGrid.Columns> 
+            </DataGrid>
+
+            <Label Name ="ExtensionMonths" Visibility="Hidden" Padding="0" Content="Extension Rent To (In Months)" Margin="10,370,0,0" FontFamily="Segoe UI" Foreground="White" FontWeight="DemiBold" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="176"/>
+            <ComboBox  Visibility="Hidden" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" FontSize="10" SelectedIndex="0" Name="ResponseTextBox" Height="25" Margin="191,367,360,3" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" >
+                <ComboBoxItem FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold">3</ComboBoxItem>
+                <ComboBoxItem FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold">6</ComboBoxItem>
+            </ComboBox>
+
+            <Label Name ="ShopLocation" Visibility="Hidden" Content="Shop Location" FontFamily="Segoe UI" Background="White" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="507,228,0,0" VerticalAlignment="Top" Height="26" Width="104"/>
+            <Grid Name="LocationImage" Visibility="Hidden" HorizontalAlignment="Left" Height="86" Margin="507,259,0,0" VerticalAlignment="Top" Width="104">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/SBC Management Software;component/user.jpg" />
+                </Grid.Background>
+            </Grid>
+            <Button Content="Rent Out Shop" Name="RentOutButton" HorizontalAlignment="Left" Margin="266,370,0,0" VerticalAlignment="Top" Width="100" Height="20" FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold"  Background="#FF007ACC" Foreground ="White"  Click="GoToRentOutShop_Click"/>
+            <Button Content="Extend Rent" Name="ExtendRentButton" Visibility="Hidden" HorizontalAlignment="Left" Margin="266,370,0,0" VerticalAlignment="Top" Width="100" Height="20" FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold"  Background="#FF007ACC" Foreground ="White"  Click="ExtendRent_Click"/>
+            <Button Content="Clear Out Shop" HorizontalAlignment="Left" Margin="386,370,0,0" VerticalAlignment="Top" Width="100" Height="20" FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold"  Background="#FF007ACC" Foreground ="White"  Click="GoToClearOutShop_Click"/>
+            <Button Content="Modify Shop" HorizontalAlignment="Left" Margin="506,370,0,0" VerticalAlignment="Top" Width="100" Height="20" FontSize="10" FontFamily="Segoe UI" FontWeight="DemiBold"  Background="#FF007ACC" Foreground ="White"  Click="GoToModifyShop_Click"/>
+            <Button Content="Detailed" HorizontalAlignment="Left" Margin="507,63,0,0" VerticalAlignment="Top" Width="99" Height="47" Click="Button_Click"/>
+        </Grid>
+    </Grid>
+</Page>
