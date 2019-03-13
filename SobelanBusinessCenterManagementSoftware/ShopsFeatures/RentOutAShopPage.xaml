@@ -10,63 +10,89 @@
       Height="450" Width="800"
       Title="Rent Out A Shop ">
 
-    <Grid Background="#FF2A2222">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/SBC Management Software;component/01.jpg" Stretch="UniformToFill" Opacity="0.9"/>
+        </Grid.Background>
         <Label Content="SOBELAN BUSINESS CENTER" FontSize="48" FontFamily="Prestige Elite Std" Margin="0,0.485,0,399.515" Background="#FF3F3F46" HorizontalContentAlignment="Center">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
             </Label.Foreground>
         </Label>
 
-        <TabControl Height="399.715" Margin="0,0,616.2,-0.2" VerticalAlignment="Bottom" Background="{x:Null}" BorderThickness="0" TabStripPlacement="Bottom">
-            <StackPanel Orientation="Vertical" Margin="0,0,0.2,0.2">
-                <TabItem Header="Home" Name="HomeButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="HomeButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
-                </TabItem>
-                <TabItem Header="Shops" Name="ShopsButton" IsSelected="True" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="ShopsButton_MouseLeftButtonUp">
-                </TabItem>
-                <TabItem Header="Employees" Name="EmployeesButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="EmployeesButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
-                </TabItem>
-                <TabItem Header="Legal Documents" Name="LegalButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="LegalDocumentsButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
-                </TabItem>
-                <TabItem Header="About Us" Name="AboutButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="AboutUsButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
-                </TabItem>
-            </StackPanel>
-        </TabControl>
-        <Grid Name="MainContentPanel"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="616" Height="395" Margin="0,53,0,0" Panel.ZIndex="1" Background="White">
+        <StackPanel Orientation="Vertical" Height="400" Margin="0,0,616,0" Background="{x:Null}" VerticalAlignment="Bottom" Name="TabPanel" >
+            <Button Padding="15,0,0,0" RenderTransformOrigin="0,0.5" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Height="80" Name="HomeButtonPanel" Margin="0,0,120,0"  Click="HomeButton_MouseLeftButtonUp"  MouseEnter="HomeButton_PanelEntered" MouseLeave="HomeButton_PanelLeft"  >
+                <Button.RenderTransform><TransformGroup><ScaleTransform ScaleX="1.5" ScaleY="1.5"/></TransformGroup></Button.RenderTransform><materialDesign:Chip Background="#FF007ACC" FontWeight="DemiBold" FontFamily="Segoe UI" Content="  Home" Name="HomeButton1" IconBackground="{DynamicResource PrimaryHueDarkBrush}" IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" FontSize="10">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon Height="25" Width="25"  Kind="Home"></materialDesign:PackIcon>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+            </Button>
+            <Button Padding="15,0,0,0" RenderTransformOrigin="0,0.5" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Height="80" Name="ShopsButtonPanel" Margin="0,0,120,0"  Click="ShopsButton_MouseLeftButtonUp"  MouseEnter="ShopsButton_PanelEntered" MouseLeave="ShopsButton_PanelLeft" >
+                <Button.RenderTransform><TransformGroup><ScaleTransform ScaleX="1.5" ScaleY="1.5"/></TransformGroup></Button.RenderTransform><materialDesign:Chip Background="#FF007ACC" FontWeight="DemiBold" FontFamily="Segoe UI" Content=" Shops" Name="ShopsButton" IconBackground="White" IconForeground="Black" FontSize="12">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon Height="25" Width="25"  Kind="Shop"></materialDesign:PackIcon>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+            </Button>
+            <Button Padding="15,0,0,0" RenderTransformOrigin="0,0.5" HorizontalContentAlignment="Left" Height="80" Name="EmployeesButtonPanel" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,120,0"  Click="EmployeesButton_MouseLeftButtonUp"  MouseEnter="EmployeesButton_PanelEntered" MouseLeave="EmployeesButton_PanelLeft" >
+                <Button.RenderTransform><TransformGroup><ScaleTransform ScaleX="1.5" ScaleY="1.5"/></TransformGroup></Button.RenderTransform><materialDesign:Chip Background="#FF007ACC" FontWeight="DemiBold" FontFamily="Segoe UI" Content=" Employees" Name="EmployeesButton"  IconBackground="{DynamicResource PrimaryHueDarkBrush}" IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" FontSize="10">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon Height="25" Width="25"  Kind="People"></materialDesign:PackIcon>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+            </Button>
+            <Button Padding="15,0,0,0" RenderTransformOrigin="0,0.5" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Height="80" Name="LegalDocumentsPanel" Margin="0,0,120,0"  Click="LegalDocumentsButton_MouseLeftButtonUp"  MouseEnter="LegalDocumentsButton_PanelEntered" MouseLeave="LegalDocumentsButton_PanelLeft" >
+                <Button.RenderTransform><TransformGroup><ScaleTransform ScaleX="1.5" ScaleY="1.5"/></TransformGroup></Button.RenderTransform><materialDesign:Chip Background="#FF007ACC" FontWeight="DemiBold" FontFamily="Segoe UI" Content=" Legal Docs" Name="LegalDocumentsButton" IconBackground="{DynamicResource PrimaryHueDarkBrush}" IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" FontSize="10">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon Height="25" Width="25"  Kind="FileDocument"></materialDesign:PackIcon>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+            </Button>
+            <Button Padding="15,0,0,0" RenderTransformOrigin="0,0.5" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Height="80" Name="AboutButtonPanel" Margin="0,0,120,0"  Click="AboutUsButton_MouseLeftButtonUp" MouseEnter="AboutUsButton_PanelEntered" MouseLeave="AboutUsButton_PanelLeft" >
+                <Button.RenderTransform><TransformGroup><ScaleTransform ScaleX="1.5" ScaleY="1.5"/></TransformGroup></Button.RenderTransform><materialDesign:Chip Background="#FF007ACC" FontWeight="DemiBold" FontFamily="Segoe UI" Content=" About" Name="AboutButton" IconBackground="{DynamicResource PrimaryHueDarkBrush}" IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" FontSize="10" MouseLeftButtonUp="AboutUsButton_MouseLeftButtonUp">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon Height="25" Width="25"  Kind="About"></materialDesign:PackIcon>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+            </Button>
+        </StackPanel>
+        <Grid Name="MainContentPanel"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="616" Height="395" Margin="0,53,0,0" Panel.ZIndex="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="481*"/>
                 <ColumnDefinition Width="109*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="Renter Details" HorizontalAlignment="Left" Height="42" Margin="21,21,0,0" VerticalAlignment="Top" Width="269" FontSize="24" FontWeight="DemiBold" Foreground="Black" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
-            <Label Content="Please Enter The Renter's Details" HorizontalAlignment="Left" Height="32" Margin="21,77,0,0" VerticalAlignment="Top" Width="269" FontSize="16" FontWeight="DemiBold" Foreground="Black" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+            <Label Content="Renter Details" HorizontalAlignment="Left" Height="42" Margin="21,21,0,0" VerticalAlignment="Top" Width="269" FontSize="24" FontWeight="DemiBold" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+            <Label Content="Please Enter The Renter's Details" HorizontalAlignment="Left" Height="32" Margin="21,77,0,0" VerticalAlignment="Top" Width="269" FontSize="16" FontWeight="DemiBold" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
 
-            <Label Content="First Name" HorizontalAlignment="Left" Margin="16,125,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Margin="121,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" x:Name="FirstNameBox" BorderThickness="0,0,0,4" BorderBrush="Black"/>
-            <Label Content="Last Name" HorizontalAlignment="Left" Margin="321,125,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Margin="426,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" x:Name="LastNameBox" Grid.ColumnSpan="2" BorderThickness="0,0,0,4" BorderBrush="Black"/>
+            <Label Content="First Name" HorizontalAlignment="Left" Margin="16,125,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="White" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="121,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" x:Name="FirstNameBox" BorderThickness="0,0,0,4" BorderBrush="White" Foreground="White"/>
+            <Label Content="Last Name" HorizontalAlignment="Left" Margin="321,125,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="White" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="426,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" x:Name="LastNameBox" Grid.ColumnSpan="2" BorderThickness="0,0,0,4" BorderBrush="White" Foreground="White"/>
 
-            <Label Content="Company" HorizontalAlignment="Left" Margin="16,175,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Margin="121,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" x:Name="NameBox" BorderThickness="0,0,0,4" BorderBrush="Black"/>
-            <Label Content="House No" HorizontalAlignment="Left" Margin="321,175,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Margin="426,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" x:Name="HouseNumberBox" BorderThickness="0,0,0,4" BorderBrush="Black" Grid.ColumnSpan="2"/>
+            <Label Content="Company" HorizontalAlignment="Left" Margin="16,175,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="White" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
+            <TextBox  Foreground="White" HorizontalAlignment="Left" Height="30" Margin="121,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" x:Name="NameBox" BorderThickness="0,0,0,4" BorderBrush="White" />
+            <Label Content="House No" HorizontalAlignment="Left" Margin="321,175,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="White" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
+            <TextBox  Foreground="White" HorizontalAlignment="Left" Height="30" Margin="426,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" x:Name="HouseNumberBox" BorderThickness="0,0,0,4" BorderBrush="White" Grid.ColumnSpan="2"/>
 
-            <Label Content="County" HorizontalAlignment="Left" Margin="16,225,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Margin="121,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" x:Name="CountyBox" BorderThickness="0,0,0,4" BorderBrush="Black"/>
+            <Label Content="County" HorizontalAlignment="Left" Margin="16,225,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="White" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
+            <TextBox  Foreground="White" HorizontalAlignment="Left" Height="30" Margin="121,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" x:Name="CountyBox" BorderThickness="0,0,0,4" BorderBrush="White"/>
 
-            <Label Content="Rent Duration" HorizontalAlignment="Left" Margin="16,295,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
-            <ComboBox materialDesign:HintAssist.Hint="Duration in Months" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  HorizontalAlignment="Left" Height="50" Margin="121,275,0,0" VerticalAlignment="Top" Width="150" Name="RentDurationBox" SelectedIndex="0" FontSize="16" Padding="10,5,0,0" BorderThickness="0,0,0,4" BorderBrush="Black">
-                <ComboBoxItem FontSize="14" Content="3" Foreground="Black"></ComboBoxItem>
-                <ComboBoxItem FontSize="14" Content="6" Foreground="Black"></ComboBoxItem>
-                <ComboBoxItem FontSize="14" Content="12" Foreground="Black"></ComboBoxItem>
+            <Label Content="Rent Duration" HorizontalAlignment="Left" Margin="16,295,0,0" VerticalAlignment="Top" Height="30" Width="100" Background="{x:Null}" Foreground="White" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
+            <ComboBox materialDesign:HintAssist.Hint="Duration in Months" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  HorizontalAlignment="Left" Height="50" Margin="121,275,0,0" VerticalAlignment="Top" Width="150" Name="RentDurationBox" SelectedIndex="0" FontSize="16" Padding="10,5,0,0" BorderThickness="0,0,0,4" BorderBrush="White" Foreground="White">
+                <ComboBoxItem FontSize="14" Content="3" Foreground="White"></ComboBoxItem>
+                <ComboBoxItem FontSize="14" Content="6" Foreground="White"></ComboBoxItem>
+                <ComboBoxItem FontSize="14" Content="12" Foreground="White"></ComboBoxItem>
             </ComboBox>
 
-            <Label Content="Address" HorizontalAlignment="Left" Margin="321,225,0,0" VerticalAlignment="Top" Height="30" Width="89" Background="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
-            <ComboBox materialDesign:HintAssist.Hint="City" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  HorizontalAlignment="Left" Height="50" Margin="426,225,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Name="RegionBox" BorderThickness="0,0,0,4" BorderBrush="Black" Foreground="Black" SelectedIndex="0" Grid.ColumnSpan="2">
-                <ComboBoxItem Content="Addis Ababa" Foreground="Black"></ComboBoxItem>
-                <ComboBoxItem Content="Oromia" Foreground="Black"></ComboBoxItem>
+            <Label Content="Address" HorizontalAlignment="Left" Margin="321,225,0,0" VerticalAlignment="Top" Height="30" Width="89" Background="{x:Null}" Foreground="White" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
+            <ComboBox materialDesign:HintAssist.Hint="City" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  HorizontalAlignment="Left" Height="50" Margin="426,225,0,0" VerticalAlignment="Top" Width="150" FontSize="14" Name="RegionBox" BorderThickness="0,0,0,4" BorderBrush="White" Foreground="White" SelectedIndex="0" Grid.ColumnSpan="2">
+                <ComboBoxItem Content="Addis Ababa" Foreground="White"></ComboBoxItem>
+                <ComboBoxItem Content="Oromia" Foreground="White"></ComboBoxItem>
             </ComboBox>
-            <Label Content="Sub-City" HorizontalAlignment="Left" Margin="321,295,0,0" VerticalAlignment="Top" Height="30" Width="89" Background="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Margin="426,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Name="SubCityBox" BorderThickness="0,0,0,4" BorderBrush="Black" Foreground="Black" Grid.ColumnSpan="2"/>
+            <Label Content="Sub-City" HorizontalAlignment="Left" Margin="321,295,0,0" VerticalAlignment="Top" Height="30" Width="89" Background="{x:Null}" Foreground="White" FontSize="14" FontFamily="Segoe UI" FontWeight="Medium" RenderTransformOrigin="0.195,1.9"/>
+            <TextBox HorizontalAlignment="Left" Height="30" Margin="426,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Name="SubCityBox" BorderThickness="0,0,0,4" BorderBrush="White" Foreground="White" Grid.ColumnSpan="2"/>
 
             <Button Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="Rent Out Shop" HorizontalAlignment="Left" Margin="472,356,0,0" VerticalAlignment="Top" Width="134" Grid.ColumnSpan="2" Height="29" FontFamily="Segoe UI" FontWeight="DemiBold"  Background="#FF007ACC" Foreground ="White"  Click="Button_Click"/>
         </Grid>

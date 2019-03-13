@@ -1,4 +1,5 @@
 ﻿<Page x:Class="SBCManagementSoftware.ShopsPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,33 +10,84 @@
       Height="450" Width="800" 
       Title="Shops">
 
-    <Grid Background="#FF2A2222">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/SBC Management Software;component/01.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
         <Label Content="SOBELAN BUSINESS CENTER" FontSize="48" FontFamily="Prestige Elite Std" Margin="0,0.485,0,399.515" Background="#FF3F3F46" HorizontalContentAlignment="Center">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <TabControl Height="399.715" Margin="0,0,616.2,-0.2" VerticalAlignment="Bottom" Background="{x:Null}" BorderThickness="0" TabStripPlacement="Bottom">
-            <StackPanel Orientation="Vertical" Margin="0,0,0.2,0.2">
-                <TabItem Header="Home" Name="HomeButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="HomeButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
-                </TabItem>
-                <TabItem Header="Shops" Name="ShopsButton" IsSelected="True" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0">
-                </TabItem>
-                <TabItem Header="Employees" Name="EmployeesButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="EmployeesButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
-                </TabItem>
-                <TabItem Header="Legal Documents" Name="LegalButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="LegalDocumentsButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
-                </TabItem>
-                <TabItem Header="About Us" Name="AboutButton" Background="#FF007ACC" Foreground ="White" FontWeight="DemiBold"  Height="50" Margin="-2,0,0.2,0" MouseLeftButtonUp="AboutUsButton_MouseLeftButtonUp" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
-                </TabItem>
-            </StackPanel>
-        </TabControl>
+        <StackPanel Orientation="Vertical" Height="400" Margin="0,0,616,0" Background="{x:Null}" VerticalAlignment="Bottom" Name="TabPanel" >
+            <Button Padding="15,0,0,0" RenderTransformOrigin="0,0.5" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Height="80" Name="HomeButtonPanel" Margin="0,0,120,0"  Click="HomeButton_MouseLeftButtonUp" MouseEnter="HomeButton_PanelEntered" MouseLeave="HomeButton_PanelLeft" >
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <materialDesign:Chip Background="#FF007ACC" FontWeight="DemiBold" FontFamily="Segoe UI" Content="  Home" Name="HomeButton1" IconBackground="{DynamicResource PrimaryHueDarkBrush}" IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" FontSize="10">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon Height="25" Width="25"  Kind="Home"></materialDesign:PackIcon>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+            </Button>
+            <Button Padding="15,0,0,0" RenderTransformOrigin="0,0.5" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Height="80" Name="ShopsButtonPanel" Margin="0,0,120,0" MouseEnter="ShopsButton_PanelEntered" MouseLeave="ShopsButton_PanelLeft" >
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <materialDesign:Chip Content=" Shops" Name="ShopsButton" Background="#FF007ACC" IconBackground="White" IconForeground="Black" FontSize="16" FontStretch="Expanded" FontWeight="DemiBold" FontFamily="Segoe UI" HorizontalAlignment="Left">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon Height="25" Width="25" Kind="Shop"/>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+            </Button>
+            <Button Padding="15,0,0,0" RenderTransformOrigin="0,0.5" HorizontalContentAlignment="Left" Height="80" Name="EmployeesButtonPanel" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,120,0"  Click="EmployeesButton_MouseLeftButtonUp" MouseEnter="EmployeesButton_PanelEntered" MouseLeave="EmployeesButton_PanelLeft" >
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <materialDesign:Chip Background="#FF007ACC" FontWeight="DemiBold" FontFamily="Segoe UI" Content=" Employees" Name="EmployeesButton"  IconBackground="{DynamicResource PrimaryHueDarkBrush}" IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" FontSize="10">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon Height="25" Width="25"  Kind="People"></materialDesign:PackIcon>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+            </Button>
+            <Button Padding="15,0,0,0" RenderTransformOrigin="0,0.5" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Height="80" Name="LegalDocumentsPanel" Margin="0,0,120,0"  Click="LegalDocumentsButton_MouseLeftButtonUp" MouseEnter="LegalDocumentsButton_PanelEntered" MouseLeave="LegalDocumentsButton_PanelLeft" >
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <materialDesign:Chip Background="#FF007ACC" FontWeight="DemiBold" FontFamily="Segoe UI" Content=" Legal Docs" Name="LegalDocumentsButton" IconBackground="{DynamicResource PrimaryHueDarkBrush}" IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" FontSize="10">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon Height="25" Width="25"  Kind="FileDocument"></materialDesign:PackIcon>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+            </Button>
+            <Button Padding="15,0,0,0" RenderTransformOrigin="0,0.5" HorizontalContentAlignment="Left" Background="{x:Null}" BorderBrush="{x:Null}" Height="80" Name="AboutButtonPanel" Margin="0,0,120,0"  Click="AboutUsButton_MouseLeftButtonUp" MouseEnter="AboutUsButton_PanelEntered" MouseLeave="AboutUsButton_PanelLeft" >
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <materialDesign:Chip Background="#FF007ACC" FontWeight="DemiBold" FontFamily="Segoe UI" Content=" About" Name="AboutButton" IconBackground="{DynamicResource PrimaryHueDarkBrush}" IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}" FontSize="10" MouseLeftButtonUp="AboutUsButton_MouseLeftButtonUp">
+                    <materialDesign:Chip.Icon>
+                        <materialDesign:PackIcon Height="25" Width="25"  Kind="About"></materialDesign:PackIcon>
+                    </materialDesign:Chip.Icon>
+                </materialDesign:Chip>
+            </Button>
+        </StackPanel>
 
-         <Grid x:Name="MainContentPanel"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="616" Height="395" Margin="0,53,0,0">
-            <Grid.Background> <ImageBrush ImageSource="/SBC Management Software;component/01.jpg" Stretch="UniformToFill"/> </Grid.Background> <Grid.ColumnDefinitions>
+        <Grid x:Name="MainContentPanel"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="616" Height="395" Margin="0,53,0,0">
+            <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="481*"/>
                 <ColumnDefinition Width="109*"/>
             </Grid.ColumnDefinitions>
-             
+
             <Label Content="Come For All Your Necessities&#xA;Right In the Heart Of Merkato" Margin="0,10,0,0" VerticalAlignment="Top" Height="65"  HorizontalContentAlignment="Center" FontSize="22" FontFamily="Trajan Pro" FontWeight="SemiBold" TextOptions.TextHintingMode="Animated" Grid.ColumnSpan="2"/>
             <Button Content="View All Shops" HorizontalAlignment="Right" Margin="0,130,10,0" VerticalAlignment="Top" Width="200" Height="35" Grid.ColumnSpan="2" HorizontalContentAlignment="Right"  Background="#FF007ACC" Foreground ="White"  Click="ViewAllShopsButton_Click" FontWeight="DemiBold"/>
             <Button Content="Rent Out Shops" HorizontalAlignment="Right" Margin="0,180,10,0" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" Height="35" HorizontalContentAlignment="Right"  Background="#FF007ACC" Foreground ="White" Click="RentOutAShopButton_Click" FontWeight="DemiBold"/>

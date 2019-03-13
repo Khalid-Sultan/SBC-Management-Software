@@ -56,30 +56,74 @@ namespace SBCManagementSoftware
             EmployeeImage.Background.SetValue(ImageBrush.ImageSourceProperty, bi.ImageSource);
         }
         // Main Nav Bar Buttons
-        private void HomeButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void HomeButton_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             HomePage homePage = new HomePage();
             this.NavigationService.Navigate(homePage);
         }
-        private void ShopsButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void HomeButton_PanelEntered(object sender, MouseEventArgs e)
+        {
+            HomeButtonPanel.Margin = new Thickness(0, 0, 0, 0);
+        }
+        private void HomeButton_PanelLeft(object sender, MouseEventArgs e)
+        {
+            HomeButtonPanel.Margin = new Thickness(0, 0, 120, 0);
+        }
+
+        private void ShopsButton_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             ShopsPage shopsPage = new ShopsPage();
             this.NavigationService.Navigate(shopsPage);
         }
-        private void EmployeesButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void ShopsButton_PanelEntered(object sender, MouseEventArgs e)
+        {
+            ShopsButtonPanel.Margin = new Thickness(0, 0, 0, 0);
+        }
+        private void ShopsButton_PanelLeft(object sender, MouseEventArgs e)
+        {
+            ShopsButtonPanel.Margin = new Thickness(0, 0, 120, 0);
+        }
+
+        private void EmployeesButton_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             EmployeesPage employeesPage = new EmployeesPage();
             this.NavigationService.Navigate(employeesPage);
         }
-        private void LegalDocumentsButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void EmployeesButton_PanelEntered(object sender, MouseEventArgs e)
+        {
+            EmployeesButtonPanel.Margin = new Thickness(0, 0, 0, 0);
+        }
+        private void EmployeesButton_PanelLeft(object sender, MouseEventArgs e)
+        {
+            EmployeesButtonPanel.Margin = new Thickness(0, 0, 120, 0);
+        }
+
+        private void LegalDocumentsButton_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             LegalDocumentsPage legalDocumentsPage = new LegalDocumentsPage();
             this.NavigationService.Navigate(legalDocumentsPage);
         }
-        private void AboutUsButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void LegalDocumentsButton_PanelEntered(object sender, MouseEventArgs e)
+        {
+            LegalDocumentsPanel.Margin = new Thickness(0, 0, 0, 0);
+        }
+        private void LegalDocumentsButton_PanelLeft(object sender, MouseEventArgs e)
+        {
+            LegalDocumentsPanel.Margin = new Thickness(0, 0, 120, 0);
+        }
+
+        private void AboutUsButton_MouseLeftButtonUp(object sender, RoutedEventArgs e)
         {
             AboutUsPage aboutUsPage = new AboutUsPage();
             this.NavigationService.Navigate(aboutUsPage);
+        }
+        private void AboutUsButton_PanelEntered(object sender, MouseEventArgs e)
+        {
+            AboutButtonPanel.Margin = new Thickness(0, 0, 0, 0);
+        }
+        private void AboutUsButton_PanelLeft(object sender, MouseEventArgs e)
+        {
+            AboutButtonPanel.Margin = new Thickness(0, 0, 120, 0);
         }
         private void ModifyButton_Click(object sender, RoutedEventArgs e)
         {
@@ -122,18 +166,6 @@ namespace SBCManagementSoftware
                 MessageBox.Show(ex.Message.ToString());
             }
         }
-        private void Button_MouseEnter(object sender, MouseEventArgs e)
-        {
-            TabItem tabItem = (TabItem)sender;
-            tabItem.Foreground = System.Windows.Media.Brushes.Black;
-        }
-
-        private void Button_MouseLeave(object sender, MouseEventArgs e)
-        {
-            TabItem tabItem = (TabItem)sender;
-            tabItem.Foreground = System.Windows.Media.Brushes.White;
-        }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             try
